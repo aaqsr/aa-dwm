@@ -3,3 +3,4 @@
 dwm
 *.orig
 *.rej
+patches/dwm-maximize_vert_horz-20160731-56a31dc.diff
