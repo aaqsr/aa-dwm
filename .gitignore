@@ -1,3 +1,5 @@
 *.o
 *.pdf
 dwm
+*.orig
+*.rej
