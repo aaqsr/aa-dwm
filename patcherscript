@@ -1,0 +1,19 @@
+#!/bin/sh
+# Applies patches in other git branches
+
+for fname in $(ls patches); do
+    bname=$(echo $fname | cut -d"-" -f2)
+    echo "========= DOING $bname ========="
+    git checkout master
+    git branch $bname
+    git checkout $bname
+    cp patches/$fname .
+    git add $fname 
+    git commit $fname -m "Added diff file"
+    patch -i $fname
+    git commit -a -m "Added $bname"
+    git checkout master
+    echo "========= DONE WITH $bname ========="
+done
+echo "========= DONE WITH $bname ========="
+git branch
